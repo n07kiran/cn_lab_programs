@@ -60,6 +60,7 @@ $ns flush-trace
 close $na
 close $nt
 exec nam p10.nam &
+exec awk -f p10.awk p10.tr &
 }
 $ns at 0.0 "$cbr1 start"
 $ns at 0.0 "$cbr2 start"
