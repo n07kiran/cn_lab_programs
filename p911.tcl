@@ -20,9 +20,9 @@ $ns duplex-link $n3 $n5 1Mb 10ms DropTail
 
 Agent/TCP set_nam_tracevar_true
 set tcp [new Agent/TCP]
-$tcp set fid 1
-$tcp set windowlnit 3
-$tcp set maxcwnd 3
+$tcp set fid_ 1
+$tcp set windowInit_ 3
+$tcp set maxcwnd_ 3
 $ns attach-agent $n1 $tcp
 
 set sink [new Agent/TCPSink]
@@ -35,7 +35,7 @@ $ftp attach-agent $tcp
 # Start FTP traffic at t=0.05 seconds
 $ns at 0.05 "$ftp start"
 $ns at 0.25 "$ns queue-limit $n3 $n4 0"
-$ns at 0.35 "$ns queue-limit $n3 $n4 10"
+$ns at 0.30 "$ns queue-limit $n3 $n4 3"
 $ns at 1.0 "finish"
 
 proc finish {} {
